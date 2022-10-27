@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-import { CHART_WIDTH, CHART_HEIGHT, CHART_ANIMATION_DURATION, CHART_ANIMATION_BEGIN } from '../../../constants';
+import { CHART_WIDTH, CHART_HEIGHT, CHART_ANIMATION_DURATION, CHART_ANIMATION_BEGIN } from '../../../settings/constants';
 import { getMetricsData } from '../../../dataUtils';
 
 const FunnelChart = ({ daysRange }) => {

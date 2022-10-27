@@ -53,6 +53,9 @@ table {
 	border-spacing: 0;
 }
 
+body {
+	background: #20232a;
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

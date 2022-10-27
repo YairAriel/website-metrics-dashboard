@@ -13,7 +13,12 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-import { CHART_WIDTH, CHART_HEIGHT, CHART_ANIMATION_DURATION, CHART_ANIMATION_BEGIN } from '../../../constants';
+import {
+  CHART_WIDTH,
+  CHART_HEIGHT,
+  CHART_ANIMATION_DURATION,
+  CHART_ANIMATION_BEGIN,
+} from '../../../settings/constants';
 import { getConversionRateData, getAverageByAttr } from '../../../dataUtils';
 
 const ConversionRateChart = ({ daysRange }) => {
@@ -22,7 +27,11 @@ const ConversionRateChart = ({ daysRange }) => {
 
   return (
     // <ResponsiveContainer width="100%" height="100%">
-    <LineChart width={CHART_WIDTH} height={CHART_HEIGHT} data={conversionRateData}>
+    <LineChart
+      width={CHART_WIDTH}
+      height={CHART_HEIGHT}
+      data={conversionRateData}
+    >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="date" />
       <YAxis />

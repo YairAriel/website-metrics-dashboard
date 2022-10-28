@@ -1,0 +1,8 @@
+{
+  "pageTitle": "Website Metrics Dashboard",
+  "Charts": {
+    "funnel": "Funnel (clicks >> conversions)",
+    "conversionRate": "Conversion Rate ({{avg}}%)",
+    "costPerConversion": "Cost Per Conversion (${{avg}})"
+  }
+}

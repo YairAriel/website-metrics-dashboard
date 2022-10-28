@@ -5,13 +5,12 @@ import {
   LineChart,
   Line,
   XAxis,
-  YAxis,
-  CartesianGrid,
   Tooltip,
-  Legend,
   ReferenceLine,
   ResponsiveContainer,
+  Label,
 } from 'recharts';
+import { useTranslation } from 'react-i18next';
 
 import {
   CHART_WIDTH,
@@ -20,34 +19,43 @@ import {
   CHART_ANIMATION_BEGIN,
 } from '../../../settings/constants';
 import { getConversionRateData, getAverageByAttr } from '../../../dataUtils';
+import DataCard from '../../DataCard';
 
 const ConversionRateChart = ({ daysRange }) => {
+  const { t } = useTranslation();
   const conversionRateData = getConversionRateData(daysRange);
-  const conversionRateAvg = getAverageByAttr(conversionRateData, 'conversionRate');
+  const avgConversionRate = getAverageByAttr(conversionRateData, 'conversionRate');
 
   return (
     // <ResponsiveContainer width="100%" height="100%">
-    <LineChart
-      width={CHART_WIDTH}
-      height={CHART_HEIGHT}
-      data={conversionRateData}
+    <DataCard
+      backgroundColor="azure"
+      cardTitle={t('Charts.conversionRate', { avg: avgConversionRate })}
     >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="date" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <ReferenceLine y={conversionRateAvg} label={`Avg. ${conversionRateAvg}`} stroke="red" />
-      <Line
-        type="monotone"
-        dataKey="conversionRate"
-        stroke="#8884d8"
-        activeDot={{ r: 5 }}
-        strokeWidth={2}
-        animationDuration={CHART_ANIMATION_DURATION}
-        animationBegin={CHART_ANIMATION_BEGIN}
-      />
-    </LineChart>
+      <LineChart
+        key={Math.random()}
+        width={CHART_WIDTH}
+        height={CHART_HEIGHT}
+        data={conversionRateData}
+        margin={{ right: 30, left: 8 }}
+      >
+        <XAxis dataKey="date" />
+        <Tooltip />
+        <ReferenceLine
+          y={avgConversionRate}
+          label={<Label value={avgConversionRate} position="top" />}
+          stroke="#fff"
+        />
+        <Line
+          type="monotone"
+          dataKey="conversionRate"
+          stroke="#767e89"
+          strokeWidth={5}
+          animationDuration={CHART_ANIMATION_DURATION}
+          animationBegin={CHART_ANIMATION_BEGIN}
+        />
+      </LineChart>
+    </DataCard>
     // </ResponsiveContainer>
   );
 };

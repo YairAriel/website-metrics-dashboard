@@ -1,0 +1,21 @@
+@import '../../settings/colors.scss';
+
+.dataCard {
+  border-radius: 20px;
+  margin: 15px;
+  padding: 30px;
+  height: max-content;
+  &.black {
+    background: $black-color;
+  }
+  &.azure {
+    background: $azure-color;
+  }
+  &.orange {
+    background: $orange-color;
+  }
+  .cardTitle {
+    color: $white-color;
+    margin-bottom: 20px;
+  }
+}

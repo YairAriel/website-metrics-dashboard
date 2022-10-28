@@ -11,9 +11,7 @@ const App = () => {
   return (
     <div className={styles.app}>
       <h1>{t('pageTitle')}</h1>
-      <div>
-        <Charts />
-      </div>
+      <Charts />
     </div>
   );
 };

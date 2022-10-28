@@ -11,10 +11,9 @@ import {
   Label,
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
+import styles from './ConversionRateChart.module.scss';
 
 import {
-  CHART_WIDTH,
-  CHART_HEIGHT,
   CHART_ANIMATION_DURATION,
   CHART_ANIMATION_BEGIN,
 } from '../../../settings/constants';
@@ -27,36 +26,36 @@ const ConversionRateChart = ({ daysRange }) => {
   const avgConversionRate = getAverageByAttr(conversionRateData, 'conversionRate');
 
   return (
-    // <ResponsiveContainer width="100%" height="100%">
     <DataCard
       backgroundColor="azure"
       cardTitle={t('Charts.conversionRate', { avg: avgConversionRate })}
     >
-      <LineChart
-        key={Math.random()}
-        width={CHART_WIDTH}
-        height={CHART_HEIGHT}
-        data={conversionRateData}
-        margin={{ right: 30, left: 8 }}
-      >
-        <XAxis dataKey="date" />
-        <Tooltip />
-        <ReferenceLine
-          y={avgConversionRate}
-          label={<Label value={avgConversionRate} position="top" />}
-          stroke="#fff"
-        />
-        <Line
-          type="monotone"
-          dataKey="conversionRate"
-          stroke="#767e89"
-          strokeWidth={5}
-          animationDuration={CHART_ANIMATION_DURATION}
-          animationBegin={CHART_ANIMATION_BEGIN}
-        />
-      </LineChart>
+      <div className={styles.chartContainer}>
+        <ResponsiveContainer>
+          <LineChart
+            key={Math.random()}
+            data={conversionRateData}
+            margin={{ right: 30, left: 8 }}
+          >
+            <XAxis dataKey="date" />
+            <Tooltip />
+            <ReferenceLine
+              y={avgConversionRate}
+              label={<Label value={avgConversionRate} position="top" />}
+              stroke="#fff"
+            />
+            <Line
+              type="monotone"
+              dataKey="conversionRate"
+              stroke="#767e89"
+              strokeWidth={5}
+              animationDuration={CHART_ANIMATION_DURATION}
+              animationBegin={CHART_ANIMATION_BEGIN}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </DataCard>
-    // </ResponsiveContainer>
   );
 };
 

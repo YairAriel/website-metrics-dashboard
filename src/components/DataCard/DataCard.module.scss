@@ -1,10 +1,14 @@
-@import '../../settings/colors.scss';
+@import '../../settings/variables.scss';
 
 .dataCard {
   border-radius: 20px;
-  margin: 15px;
-  padding: 30px;
+  margin: 10px;
+  padding: 20px;
   height: max-content;
+  @media (min-width: $breakpoint-tablet) {
+    margin: 15px;
+    padding: 30px;
+  }
   &.black {
     background: $black-color;
   }

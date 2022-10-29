@@ -2,11 +2,17 @@
   "pageTitle": "Website Metrics Dashboard",
   "Charts": {
     "funnel": "Funnel (clicks >> conversions)",
-    "conversionRate": "Conversion Rate ({{avg}}%)",
-    "costPerConversion": "Cost Per Conversion (${{avg}})"
+    "conversionRate": "Conversion Rate ({{avg}})",
+    "costPerConversion": "Cost Per Conversion ({{avg}})"
   },
   "Totals": {
     "cost": "Total Cost",
     "conversionRate":"Avg. Conversion Rate"
+  },
+  "Summary": {
+    "impressions": "Impressions",
+    "clicks": "Clicks",
+    "conversions": "Conversions",
+    "cost": "Cost"
   }
 }

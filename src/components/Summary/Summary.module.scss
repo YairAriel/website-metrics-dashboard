@@ -1,0 +1,19 @@
+/** @format */
+
+@import '../../settings/variables.scss';
+
+.summary {
+  width: 100%;
+  @media (min-width: $breakpoint-tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    max-width: initial;
+  }
+  .summaryValue {
+    font-size: 1.1em;
+    color: $white-color;
+  }
+}

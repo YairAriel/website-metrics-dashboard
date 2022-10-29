@@ -5,19 +5,26 @@ import { map, pick, takeRight } from 'lodash';
 
 import metrics from './metrics.json';
 
+const normalizedNumber = (num) => Number(num.toLocaleString());
+
+
 const formattedData = map(metrics.data, (metric) => ({
   date: lightFormat(new Date(metric.timestamp), 'MM/dd'),
-  conversionRate: Number(((metric.conversions / metric.clicks) * 100).toFixed(2)),
+  conversionRate: normalizedNumber(((metric.conversions / metric.clicks) * 100)),
   ...pick(metric, ['cost', 'impressions', 'clicks', 'conversions']),
 }));
 
-export const getTotalByAttribute = (attribute) =>
-  formattedData.reduce((acc, metric) => acc + metric[attribute], 0);
+export const formatPercent = (value) => `${value} %`;
+
+export const formatDollar = (value) => `$ ${value}`;
+
+export const getTotalByAttribute = (attribute) => 
+  formattedData.reduce((acc, metric) => acc + metric[attribute], 0).toLocaleString();
 
 export const getAverageByAttribute = (attribute, data) => {
   const targetData = data || formattedData;
   const sum = targetData.reduce((acc, metric) => acc + metric[attribute], 0);
-  return Number((sum / targetData.length).toFixed(2));
+  return normalizedNumber((sum / targetData.length));
 };
 
 const filteredDataByDaysRange = (daysRange) => {
@@ -35,5 +42,5 @@ export const getConversionRateData = (daysRange) =>
 export const getCostPerConversionData = (daysRange) =>
   map(filteredDataByDaysRange(daysRange), (metric) => ({
     date: metric.date,
-    costPerConversion: Number((metric.cost / metric.conversions).toFixed(2)),
+    costPerConversion: normalizedNumber((metric.cost / metric.conversions)),
   }));

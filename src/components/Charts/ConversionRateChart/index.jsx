@@ -17,7 +17,7 @@ import {
   CHART_ANIMATION_DURATION,
   CHART_ANIMATION_BEGIN,
 } from '../../../settings/constants';
-import { getConversionRateData, getAverageByAttribute } from '../../../dataUtils';
+import { getConversionRateData, getAverageByAttribute, formatPercent } from '../../../dataUtils';
 import DataCard from '../../DataCard';
 
 const ConversionRateChart = ({ daysRange }) => {
@@ -28,7 +28,7 @@ const ConversionRateChart = ({ daysRange }) => {
   return (
     <DataCard
       backgroundColor="azure"
-      cardTitle={t('Charts.conversionRate', { avg: avgConversionRate })}
+      cardTitle={t('Charts.conversionRate', { avg: formatPercent(avgConversionRate) })}
     >
       <div className={styles.chartContainer}>
         <ResponsiveContainer>

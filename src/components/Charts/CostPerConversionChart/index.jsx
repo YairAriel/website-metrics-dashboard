@@ -13,7 +13,7 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import { CHART_ANIMATION_DURATION, CHART_ANIMATION_BEGIN } from '../../../settings/constants';
-import { getCostPerConversionData, getAverageByAttribute } from '../../../dataUtils';
+import { getCostPerConversionData, getAverageByAttribute, formatDollar } from '../../../dataUtils';
 import DataCard from '../../DataCard';
 import styles from '../ConversionRateChart/ConversionRateChart.module.scss';
 
@@ -25,7 +25,7 @@ const CostPerConversionChart = ({ daysRange }) => {
   return (
     <DataCard
       backgroundColor="orange"
-      cardTitle={t('Charts.costPerConversion', { avg: avgCostPerConversion })}
+      cardTitle={t('Charts.costPerConversion', { avg: formatDollar(avgCostPerConversion) })}
     >
       <div className={styles.chartContainer}>
         <ResponsiveContainer>

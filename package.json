@@ -1,5 +1,6 @@
 {
   "name": "website-metrics-dashboard",
+  "homepage": "https://yairariel.github.io/website-metrics-dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",

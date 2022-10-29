@@ -7,7 +7,6 @@ import {
   XAxis,
   Tooltip,
   ReferenceLine,
-  Label,
   ResponsiveContainer,
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
@@ -36,16 +35,13 @@ const CostPerConversionChart = ({ daysRange }) => {
           >
             <XAxis dataKey="date" />
             <Tooltip />
-            <ReferenceLine
-              y={avgCostPerConversion}
-              label={<Label value={avgCostPerConversion} position="insideTopLeft" />}
-              stroke="#fff"
-            />
+            <ReferenceLine y={avgCostPerConversion} stroke="#fff" />
             <Line
               type="monotone"
               dataKey="costPerConversion"
               stroke="#767e89"
               strokeWidth={5}
+              dot={false}
               animationDuration={CHART_ANIMATION_DURATION}
               animationBegin={CHART_ANIMATION_BEGIN}
             />

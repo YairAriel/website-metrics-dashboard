@@ -14,5 +14,9 @@
   h1 {
     color: $text-color;
     text-align: center;
+    margin: 10px 10px 20px;
+    @media (min-width: $breakpoint-tablet) {
+      margin: 0.4em 0;
+    }
   }
 }

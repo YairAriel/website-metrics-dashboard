@@ -1,5 +1,6 @@
 /** @format */
 
+import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { map, sumBy } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,9 +17,9 @@ const summaryData = [
   { key: 'cost', icon: faDollarSign },
 ];
 
-const Summary = () => {
+const Summary = ({ daysRange }) => {
   const { t } = useTranslation();
-  const metricsData = getMetricsData(7);
+  const metricsData = getMetricsData(daysRange);
 
   return (
     <div className={styles.summary}>
@@ -30,5 +31,9 @@ const Summary = () => {
     </div>
   );
 };
+
+Summary.propTypes = {
+  daysRange: PropTypes.number.isRequired,
+}
 
 export default Summary;

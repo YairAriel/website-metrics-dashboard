@@ -1,5 +1,9 @@
 {
   "pageTitle": "Website Metrics Dashboard",
+  "DaysSelector": {
+    "lastWeek": "Last Week",
+    "lastMonth": "Last Month"
+  },
   "Charts": {
     "funnel": "Funnel (clicks >> conversions)",
     "conversionRate": "Conversion Rate ({{avg}})",

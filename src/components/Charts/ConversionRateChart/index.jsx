@@ -17,18 +17,18 @@ import {
   CHART_ANIMATION_DURATION,
   CHART_ANIMATION_BEGIN,
 } from '../../../settings/constants';
-import { getConversionRateData, getAverageByAttr } from '../../../dataUtils';
+import { getConversionRateData, getAverageByAttribute, formatPercent } from '../../../dataUtils';
 import DataCard from '../../DataCard';
 
 const ConversionRateChart = ({ daysRange }) => {
   const { t } = useTranslation();
   const conversionRateData = getConversionRateData(daysRange);
-  const avgConversionRate = getAverageByAttr(conversionRateData, 'conversionRate');
+  const avgConversionRate = getAverageByAttribute('conversionRate', conversionRateData);
 
   return (
     <DataCard
       backgroundColor="azure"
-      cardTitle={t('Charts.conversionRate', { avg: avgConversionRate })}
+      cardTitle={t('Charts.conversionRate', { avg: formatPercent(avgConversionRate) })}
     >
       <div className={styles.chartContainer}>
         <ResponsiveContainer>

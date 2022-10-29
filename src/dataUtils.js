@@ -7,25 +7,29 @@ import metrics from './metrics.json';
 
 const formattedData = map(metrics.data, (metric) => ({
   date: lightFormat(new Date(metric.timestamp), 'MM/dd'),
+  conversionRate: Number(((metric.conversions / metric.clicks) * 100).toFixed(2)),
   ...pick(metric, ['cost', 'impressions', 'clicks', 'conversions']),
 }));
+
+export const getTotalByAttribute = (attribute) =>
+  formattedData.reduce((acc, metric) => acc + metric[attribute], 0);
+
+export const getAverageByAttribute = (attribute, data) => {
+  const targetData = data || formattedData;
+  const sum = targetData.reduce((acc, metric) => acc + metric[attribute], 0);
+  return Number((sum / targetData.length).toFixed(2));
+};
 
 const filteredDataByDaysRange = (daysRange) => {
   if (daysRange === -1 || !daysRange) return formattedData;
   return takeRight(formattedData, daysRange);
 };
 
-export const getAverageByAttr = (data, attr) => {
-  const sum = data.reduce((acc, metric) => acc + metric[attr], 0);
-  return Number((sum / data.length).toFixed(2));
-};
-
 export const getMetricsData = (daysRange) => filteredDataByDaysRange(daysRange);
 
 export const getConversionRateData = (daysRange) =>
   map(filteredDataByDaysRange(daysRange), (metric) => ({
-    date: metric.date,
-    conversionRate: Number(((metric.conversions / metric.clicks) * 100).toFixed(2)),
+    ...pick(metric, ['date', 'conversionRate']),
   }));
 
 export const getCostPerConversionData = (daysRange) =>

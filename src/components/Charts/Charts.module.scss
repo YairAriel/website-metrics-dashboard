@@ -4,14 +4,9 @@
 
 .chartsContainer {
   width: 100%;
-  margin: 0 auto;
   @media (min-width: $breakpoint-tablet) {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 750px;
-  }
-  @media (min-width: $breakpoint-desktop) {
-    max-width: 1220px;
   }
 }

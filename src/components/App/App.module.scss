@@ -4,6 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
+  @media (min-width: $breakpoint-tablet) {
+    max-width: 750px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    max-width: 1220px;
+  }
   h1 {
     color: $text-color;
     text-align: center;

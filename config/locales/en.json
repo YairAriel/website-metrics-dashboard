@@ -18,5 +18,15 @@
     "clicks": "Clicks",
     "conversions": "Conversions",
     "cost": "Cost"
+  },
+  "Details": {
+    "title": "Detailed Metrics Data",
+    "date": "Date",
+    "impressions": "Impressions",
+    "clicks": "Clicks",
+    "conversions": "Conversions",
+    "cost": "Cost",
+    "conversionRate": "Conversion Rate",
+    "costPerConversion": "Cost Per Conversion"
   }
 }

@@ -1,0 +1,36 @@
+/** @format */
+
+@import '../../settings/variables.scss';
+
+.details {
+  width: 100%;
+  overflow-x: auto;
+  @media (min-width: $breakpoint-tablet) {
+    overflow-x: initial;
+  }
+  .row {
+    width: 100%;
+    display: flex;
+  }
+  .cell {
+    flex: 1;
+    min-width: 90px;
+    margin: 1.2em 0;
+    border-bottom: 1px solid $grey-color;
+    padding-bottom: 1.2em;
+    @media (min-width: $breakpoint-tablet) {
+      min-width: initial;
+    }
+  }
+  .cellHeader {
+    color: $grey-color;
+  }
+  .cellBody {
+    color: $text-color;
+    font-size: 1.2em;
+    &:first-of-type {
+      color: $azure-color;
+      font-weight: 500;
+    }
+  }
+}

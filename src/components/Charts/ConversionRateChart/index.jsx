@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next';
 import styles from './ConversionRateChart.module.scss';
 
 import { CHART_ANIMATION_DURATION, CHART_ANIMATION_BEGIN } from '../../../settings/constants';
-import { getConversionRateData, getAverageByAttribute, formatPercent } from '../../../dataUtils';
+import { getSpecificMetricData, getAverageByAttribute, formatPercent } from '../../../dataUtils';
 import DataCard from '../../DataCard';
 
 const ConversionRateChart = ({ daysRange }) => {
   const { t } = useTranslation();
-  const conversionRateData = getConversionRateData(daysRange);
+  const conversionRateData = getSpecificMetricData(daysRange, ['date', 'conversionRate']);
   const avgConversionRate = getAverageByAttribute('conversionRate', conversionRateData);
 
   return (

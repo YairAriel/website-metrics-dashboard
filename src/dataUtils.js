@@ -5,12 +5,12 @@ import { map, pick, takeRight } from 'lodash';
 
 import metrics from './metrics.json';
 
-const normalizedNumber = (num) => Number(num.toLocaleString());
-
+export const normalizedNumber = (num) => Number(num.toLocaleString());
 
 const formattedData = map(metrics.data, (metric) => ({
-  date: lightFormat(new Date(metric.timestamp), 'MM/dd'),
+  date: lightFormat(new Date(metric.timestamp), 'dd/MM'),
   conversionRate: normalizedNumber(((metric.conversions / metric.clicks) * 100)),
+  costPerConversion: normalizedNumber((metric.cost / metric.conversions)),
   ...pick(metric, ['cost', 'impressions', 'clicks', 'conversions']),
 }));
 
@@ -34,13 +34,7 @@ const filteredDataByDaysRange = (daysRange) => {
 
 export const getMetricsData = (daysRange) => filteredDataByDaysRange(daysRange);
 
-export const getConversionRateData = (daysRange) =>
+export const getSpecificMetricData = (daysRange, requestedData) =>
   map(filteredDataByDaysRange(daysRange), (metric) => ({
-    ...pick(metric, ['date', 'conversionRate']),
-  }));
-
-export const getCostPerConversionData = (daysRange) =>
-  map(filteredDataByDaysRange(daysRange), (metric) => ({
-    date: metric.date,
-    costPerConversion: normalizedNumber((metric.cost / metric.conversions)),
+    ...pick(metric, requestedData),
   }));

@@ -12,13 +12,13 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import { CHART_ANIMATION_DURATION, CHART_ANIMATION_BEGIN } from '../../../settings/constants';
-import { getCostPerConversionData, getAverageByAttribute, formatDollar } from '../../../dataUtils';
+import { getSpecificMetricData, getAverageByAttribute, formatDollar } from '../../../dataUtils';
 import DataCard from '../../DataCard';
 import styles from '../ConversionRateChart/ConversionRateChart.module.scss';
 
 const CostPerConversionChart = ({ daysRange }) => {
   const { t } = useTranslation();
-  const costPerConversionData = getCostPerConversionData(daysRange);
+  const costPerConversionData = getSpecificMetricData(daysRange, ['date', 'costPerConversion']);
   const avgCostPerConversion = getAverageByAttribute('costPerConversion', costPerConversionData);
 
   return (

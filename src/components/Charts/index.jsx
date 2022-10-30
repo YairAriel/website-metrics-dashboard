@@ -19,6 +19,6 @@ const Charts = ({ daysRange }) => (
 
 Charts.propTypes = {
   daysRange: PropTypes.number.isRequired,
-}
+};
 
 export default Charts;

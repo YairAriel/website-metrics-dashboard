@@ -1,3 +1,5 @@
+/** @format */
+
 const CHART_ANIMATION_DURATION = 2000;
 const CHART_ANIMATION_BEGIN = 500;
 

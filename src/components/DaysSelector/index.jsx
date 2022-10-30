@@ -34,16 +34,16 @@ const customStyles = {
     display: 'flex',
     boxShadow: 'none',
   }),
-  option: (provided,) => ({
+  option: (provided) => ({
     ...provided,
     width: '200px',
     background: 'none',
     '&:hover': { background: '#03c9d7', color: '#363c45', cursor: 'pointer' },
   }),
-}
+};
 
 const DaysSelector = ({ daysRange, setDaysRange }) => {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
   const options = [
     { value: 7, label: t('DaysSelector.lastWeek') },
     { value: 30, label: t('DaysSelector.lastMonth') },

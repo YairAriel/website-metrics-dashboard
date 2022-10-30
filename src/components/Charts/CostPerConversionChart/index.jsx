@@ -1,14 +1,7 @@
 /** @format */
 
 import PropTypes from 'prop-types';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  Tooltip,
-  ReferenceLine,
-  ResponsiveContainer,
-} from 'recharts';
+import { LineChart, Line, XAxis, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts';
 import { useTranslation } from 'react-i18next';
 
 import { CHART_ANIMATION_DURATION, CHART_ANIMATION_BEGIN } from '../../../settings/constants';

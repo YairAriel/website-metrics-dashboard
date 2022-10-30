@@ -24,7 +24,11 @@ const Summary = ({ daysRange }) => {
   return (
     <div className={styles.summary}>
       {map(summaryData, ({ key, icon }) => (
-        <DataCard key={key} cardTitle={t(`Summary.${key}`)} cardIcon={<FontAwesomeIcon icon={icon} />}>
+        <DataCard
+          key={key}
+          cardTitle={t(`Summary.${key}`)}
+          cardIcon={<FontAwesomeIcon icon={icon} />}
+        >
           <div className={styles.summaryValue}>{sumBy(metricsData, key).toLocaleString()}</div>
         </DataCard>
       ))}
@@ -34,6 +38,6 @@ const Summary = ({ daysRange }) => {
 
 Summary.propTypes = {
   daysRange: PropTypes.number.isRequired,
-}
+};
 
 export default Summary;
